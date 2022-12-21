@@ -16,7 +16,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
     @PostMapping
-    public void registerCustomer(@RequestBody CustomerRequest customerRequest){
+    public void registerCustomer(@RequestBody CustomerRequest customerRequest) throws IllegalAccessException {
         log.info("New customer registration{}", customerRequest);
         customerService.registerCustomer(customerRequest);
     }

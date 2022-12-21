@@ -24,6 +24,7 @@ public class Employee {
     )
     private Integer id;
     private String employeeId;
+    private Integer customerId;
     private String employeeName;
     private String email;
     private String revenue;

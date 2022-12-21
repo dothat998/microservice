@@ -1,4 +1,4 @@
-package com.base.employee.response;
+package com.base.customer.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
