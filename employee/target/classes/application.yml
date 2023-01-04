@@ -7,8 +7,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3306/employee?serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=yes&characterEncoding=UTF-8&reWriteBatchedInserts=true&createDatabaseIfNotExist=true
-    password: Dothat998
+    url: jdbc:mysql://192.168.87.41:3333/mysqldocker?serverTimezone=UTC&useLegacyDatetimeCode=false&useUnicode=yes&characterEncoding=UTF-8&reWriteBatchedInserts=true&createDatabaseIfNotExist=true
+    password: 123456
   jpa:
     generate-ddl: 'true'
     properties:

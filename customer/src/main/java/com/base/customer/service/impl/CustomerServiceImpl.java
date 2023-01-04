@@ -26,7 +26,6 @@ public class CustomerServiceImpl implements CustomerService {
                 .lastName(customerRequest.getLastName())
                 .email(customerRequest.getEmail())
                 .build();
-        customerRepository.saveAndFlush(customer);
         //check call api bên Employee
         EmployeeResponse rest = restTemplate.getForObject(
                 "http://localhost:8081/api/v1/employee/{cusId}",
@@ -37,5 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (rest.getIsCustomer() == false ){
             throw new IllegalAccessException("Employee");
         }
+        customerRepository.saveAndFlush(customer);
+
     }
 }

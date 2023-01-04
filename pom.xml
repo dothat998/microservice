@@ -13,6 +13,10 @@
     <modules>
         <module>customer</module>
         <module>employee</module>
+        <module>kafka</module>
+        <module>accountservice</module>
+        <module>statistic</module>
+        <module>notification</module>
     </modules>
 
     <properties>
