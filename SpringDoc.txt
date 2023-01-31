@@ -1,0 +1,61 @@
+Interface : bao gồm các phương thức trừu tượng, Chỉ có tên hàm để mô tả hành vi mà không có thân hàm thực hiện hành vi đó - 
+
+Abstract Class: Giống như 1 class, chỉ có thêm các phương thức trừu tượng, khi 1 class extend 1 abtract class thì phải dc implement tất cả các phương thức đó.
+
+1 class chỉ có thể extend 1 class 
+
+1 class có thể implemtent 1 hoặc nhiều interface(abst)
+
+1 interface extend nhiều interface khác
+
+TierLayer trong springboot
+
+Persentation layer : Tương tác với người dùng bằng Controller + view + api
+
+Business logic : (Service) chứa toàn bộ code logic ở đây
+
+Data access layer: (Repository) Tương tác với database trả kết quả về tầng business logic
+
+
+Array là truy xuất ngẫu nhiên các phần tử => thao tác lấy ra các phần tử nhanh hơn LinkedList => lưu trữ dựa trê chỉ mục (index)
+							=> thao tác thêm và xoá thì châm hơn, vì sau khi thêm và xoá array sẽ phải sắp xếp lại các phần tử
+
+Linked List không thể truy xuất ngẫu nhiên : phải duyệt từ đầu đến cuối để tìm ra phần tử
+							 => truy xuất chậm hơn array
+							 => thao tác thêm xoá nhanh hơn vì k cần sắp xếp lại các phần tử, mà chỉ cần cập nhập lại tham chiếu tới phần tử trước và sau nó.
+
+	
+Bean là :thực chất là các object java, khác biệt ở chỗ là dc container tạo ra và quản lý.
+		obj java do chính các dev gọi hàm new tạo ra và đến lúc destroy.
+
+@Component => đánh dấu là 1 Bean => ApplicationContext.getBean(Class.class)
+
+@ComponentScant để quét các bean dc chỉ định.
+
+@Autowrite : tự động tìm trong container và khởi tạo 
+		==> 3 cách sử dụng anotation này : 
+								=> @Autowired ngay trên thuộc tính (thường dc sử dụng) tự tạo ra và inject vào
+								=> Thêm vào trên contrucstor
+								=> Thêm vào phương thức setter của thuộc tính đó
+
+DI: khởi tạo giá trị trong class, cùi bắp, vì 1 class có nhiều DI mà DI lại phụ thuộc thằng khác, thì lại khó khăn để khởi tạo.
+
+@Scope 
+các bean dc quản lý trong context đều trỏ vào 1 ô nhớ => 1 instance => đã có thì sẽ k khởi tạo nữa và cứ thế lấy ra instance đó (cơ chế sigleton).
+==> nhưng muốn mỗi lần sử dụng là 1 object mới thì ta sử dụng @Scope(prototype), giá trị mặc định của nó là singleton (Request, session)
+
+Khi có 2 class dều gọi đến và muốn tạo bean
+Muốn ưu tiên 1 bean bằng cách : => @Primary vào bên trên class muốn dc ưu tiên bean
+				 	  => @Qualifier("tenbean") đi kèm với autowired, thêm ngay dưới @Autowired
+					  => Thêm vào trên contrucstor
+					  => Thêm vào phương thức setter của thuộc tính đó
+
+
+Kiến trúc 3Layer trong SpringBoot
+	
+
+
+
+
+
+
