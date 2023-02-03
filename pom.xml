@@ -17,6 +17,8 @@
         <module>accountservice</module>
         <module>statistic</module>
         <module>notification</module>
+        <module>SpringBootTutorial</module>
+        <module>sib-co-base</module>
     </modules>
 
     <properties>

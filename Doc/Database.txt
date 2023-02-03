@@ -1,0 +1,13 @@
+Hibernate chính là cài đặt của JPA (JPA là 1 tập các interface, còn Hibernate implements các interface ấy 1 cách chi tiết và triển khai nó)
+
+Jpa : Java persitence Api là 1 java Interface => cung cấp mô hình POJO persitence cho phép ánh xạ các table/các mối quan hệ giữa các table trong database sang các class/ thành các quan hệ giữa các object.
+
+
+
+Cả stored procedure và function đều là các đối tượng cơ sở dữ liệu chứa một tập các câu lệnh SQL để hoàn thành một tác vụ
+			=> stored procedure (thủ tục lưu trữ) có thể sử dụng lại nhiều lần 
+														=> có thể trả về giá trị 0, một hoặc nhiều giá trị
+			=> Một function (hàm) được biên dịch và thực thi mỗi khi hàm đó được gọi. Hàm phải trả về giá trị...
+														=> phải trả về một giá trị duy nhất (có thể là bảng).
+
+

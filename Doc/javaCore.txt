@@ -1,0 +1,19 @@
+										Java Core
+
+  
+Interface : bao gồm các phương thức trừu tượng, Chỉ có tên hàm để mô tả hành vi mà không có thân hàm thực hiện hành vi đó - 
+
+Abstract Class: Giống như 1 class, chỉ có thêm các phương thức trừu tượng, khi 1 class extend 1 abtract class thì phải dc implement tất cả các phương thức đó.
+
+1 class chỉ có thể extend 1 class 
+
+1 class có thể implemtent 1 hoặc nhiều interface(abst)
+
+1 interface extend nhiều interface khác
+
+Array là truy xuất ngẫu nhiên các phần tử => thao tác lấy ra các phần tử nhanh hơn LinkedList => lưu trữ dựa trê chỉ mục (index)
+							=> thao tác thêm và xoá thì châm hơn, vì sau khi thêm và xoá array sẽ phải sắp xếp lại các phần tử
+
+Linked List không thể truy xuất ngẫu nhiên : phải duyệt từ đầu đến cuối để tìm ra phần tử
+							 => truy xuất chậm hơn array
+							 => thao tác thêm xoá nhanh hơn vì k cần sắp xếp lại các phần tử, mà chỉ cần cập nhập lại tham chiếu tới phần tử trước và sau nó.

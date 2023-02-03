@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/SpringBootTutorial/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SpringBootTutorial/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/accountservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/accountservice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/customer/src/main/java" charset="UTF-8" />
@@ -11,6 +13,9 @@
     <file url="file://$PROJECT_DIR$/kafka/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/notification/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/notification/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sib-co-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sib-co-base/src/main/java/com/sib/co/utils/SibCoUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sib-co-base/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/statistic/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/statistic/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />

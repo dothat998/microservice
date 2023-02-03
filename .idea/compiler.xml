@@ -9,10 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="statistic" />
+        <module name="kafka" />
+        <module name="SpringBootTutorial" />
         <module name="employee" />
         <module name="accountservice" />
         <module name="customer" />
-        <module name="kafka" />
+        <module name="sib-co-base" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
