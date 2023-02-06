@@ -1,0 +1,44 @@
+													JPA - Hibernate
+
+JPA : Java persistence API - cung cấp các hàm tiện ích để thao tác CSDL quan hệ dễ dàng hơn.
+	JPA _ tạo ra 1 class để mapping với bảng có trong CSDL
+	Sử dụng các API JPA để thực hiện thao tác liên quan đến việc truy xuất dữ liệu.
+	Cung cấp các interface các class để thao tác với csdl 
+	JPA sẽ gọi xuống thư viện ORM Hibernate
+
+
+Hibernate : Quan hệ đối tượng ánh xạ  - Thực hiện ORM giữa giữa Class và Table
+		Tự động tạo ra các câu lệnh SQL cho các thao tác liên quan đến dữ liệu.
+
+
+
+ ==> JPA là một chuẩn, còn Hibernate là một implement của chuẩn JPA. 
+Nghĩa là, Hibernate sử dụng các API đã định nghĩa trong JPA để thực hiện việc ORM, và cung cấp các tính năng bổ sung cho việc lưu trữ và truy xuất dữ liệu.
+
+
+
+======================================================================================================================================
+One - many : Category (1) ( FK ) ===== (n) (Primary Key) Product
+		=> phía Entity 1 có Primary Key => trở thành Foreign Key phía nhiều.
+		=> @ManyToOne(fetch = FetchType.LAZY) => class Product
+		   private Category category
+	
+		=> .LAZY khiến thuộc tính Category của Product chỉ dc truy vấn từ CSDL khi cần, chứ không vào lúc Product được lấy ra từ CSDL.
+
+		=> GeneratedValue(strategy = GeneratedType.AUTO)
+							=> chế độ mặc định, không tự sinh ra giá trị cho primary.
+		=> GeneratedValue(strategy = GeneratedType.IDENTITY)
+							=> tự sinh ra giá trị cho primary và tự tăng.
+		=> GeneratedValue(strategy = GeneratedType.SEQUENCE)
+							=> tạo ra hibernate sequence, mỗi lần insert bản ghi thì lấy ra giá trị tiếp theo.
+		=> GeneratedValue(strategy = GeneratedType.TABLE)
+							=> tạo ra bảng để lưu giá trị cho primary.
+
+		=> uni direction : chỉ 1 chiều
+		=> Bidirection : 2 chiều
+Many - Many : 
+	=> Primary key bảng trung gian là composite primary key
+	=> Sử dụng Primary key riêng
+	=> Có cột trung gian
+
+One - One

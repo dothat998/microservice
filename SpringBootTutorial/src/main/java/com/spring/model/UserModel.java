@@ -9,10 +9,14 @@ import lombok.*;
 @Getter
 public class UserModel {
     private int id;
-    private String name;
+    private String fullName;
     private String email;
+    private String name;
     private String phone;
     private String avatar;
-    private String password;
+    private State state;
+    private String hashed_password;
 
+    public UserModel(int id, String name, String email, String phone, String avatar, String s3) {
+    }
 }
