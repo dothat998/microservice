@@ -60,13 +60,47 @@ VD : NullPointerException, chúng ta cần handler nó ra.
 ============================================================================================================================================================
 Usermanagement : Đăng kí tài khoản + cập nhật(email, pass..) + search .....
 
-Authentication: Xác thực người dùng
+Authentication: Xác thực người dùng => thường được thực hiện bằng kiểm tra username và password.
 			=> cơ chế (built in application)  
 			=> nhờ bên thứ 3 (facebooke, gmail,zalo) => OAuth1 + OAuth2 + SpringScurity
 Authotication: Phân Quyền
 			=> Role
 			=> RBAC ( Role Base Access Control) => 1 role có nhiều quyền
 									=> 1 người có nhiều role
+
+============================================================================================================================================================
+									Spring security
+=> Cốt lõi spring security là 1 loạt các bộ lọc servlert giúp thêm Authentication và authotication vào ứng dụng web.
+
+============================================================================================================================================================
+									JWT - Json Web Token
+
+JWT bao gồm 3 phần : Header - Payload - Signature
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

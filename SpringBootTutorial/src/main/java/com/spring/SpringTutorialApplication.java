@@ -1,14 +1,19 @@
 package com.spring;
 
+import com.base.kafka.util.FileStorageProperties;
 import com.spring.model.Dress;
 import com.spring.model.GirlFriend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan({"com.spring.bikini", "com.spring.model"})
+@EnableConfigurationProperties({
+        FileStorageProperties.class
+})
+@ComponentScan({"com.spring.*"})
 public class SpringTutorialApplication {
     public static void main(String[] args) {
 //        ApplicationContext context = SpringApplication.run(SpringTutorialApplication.class, args);

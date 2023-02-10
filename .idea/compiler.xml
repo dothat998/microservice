@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="notification" />
         <module name="statistic" />
-        <module name="kafka" />
+        <module name="security" />
         <module name="SpringBootTutorial" />
         <module name="employee" />
         <module name="accountservice" />
@@ -17,8 +17,5 @@
         <module name="sib-co-base" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="base-java" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
