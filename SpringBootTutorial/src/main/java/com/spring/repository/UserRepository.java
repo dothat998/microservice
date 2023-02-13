@@ -1,7 +1,6 @@
 package com.spring.repository;
 
 import com.spring.model.UserModel;
-import com.spring.security.userpincal.UserPrinciple;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +8,12 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository extends JpaRepository<UserModel, Long> {
     //check user ton tai trong db
 
-    UserPrinciple findByUsername(String username);
+    UserModel findByUsername(String username); //tim kiem user co ton tai trong db khong
 
-    Boolean existByUserName(String s);
+    Boolean existsByUsername(String s);
 
-    Boolean existByEmail(String s);
+    Boolean existsByEmail(String s);
+
+    UserModel save(UserModel userModel);
 
 }

@@ -88,7 +88,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.11.9.RELEASE</version>
+<!--            <! &#45;&#45; <version>2.0.2.RELEASE</version>  comment or remove this line &ndash;&gt;-->
         </dependency>
         <dependency>
             <groupId>javax.persistence</groupId>

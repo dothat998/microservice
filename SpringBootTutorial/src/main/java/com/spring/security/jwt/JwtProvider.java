@@ -1,6 +1,6 @@
 package com.spring.security.jwt;
 
-import com.spring.security.userpincal.UserPrinciple;
+import com.spring.model.UserModel;
 import com.spring.service.UserService;
 import io.jsonwebtoken.*;
 import lombok.Getter;
@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /*
-* @author: ThatND
-* @since: 7/2/2023 4:10 PM
-* @description: tao ra chuoi token
+ * @author: ThatND
+ * @since: 7/2/2023 4:10 PM
+ * @description: tao ra chuoi token
  * @update:
-*
-* */
+ *
+ * */
 @Component
 @Getter
 public class JwtProvider {
@@ -44,12 +44,13 @@ public class JwtProvider {
 
     /**
      * Tao ra token
+     *
      * @param authentication
      * @return
      */
     public String createToken(Authentication authentication) {
         Date present = new Date();
-        UserPrinciple userPrincipal = (UserPrinciple) authentication.getPrincipal(); // lay ra user hien tai
+        UserModel userPrincipal = (UserModel) authentication.getPrincipal(); // lay ra user hien tai
         System.out.println(userPrincipal.toString());
         return Jwts.builder()
                 .setSubject(userPrincipal.getUsername()) //set cac thuoc tinh vao jwt
@@ -59,13 +60,15 @@ public class JwtProvider {
                 .claim("role", userPrincipal.getRoles())
                 .claim("email", userPrincipal.getEmail())
                 .setIssuedAt(present)
-                .setExpiration(new Date(present.getTime() + expiration)) // thì phải set cung vao dadayspring ko khuyến khích lm vậy vì mai này muswuawr nó rát khó khăn, cái này ms chỉ ở 1 file java, có những giá trị cứng như vậy dùng ở nhiều file sauwr sẽ rất lâu nên spring tập hộp các giá trị cứng lại 1 nơi
+                // thì phải set cung vao dadayspring ko khuyến khích lm vậy vì mai này muswuawr nó rát khó khăn, cái này ms chỉ ở 1 file java,
+                // có những giá trị cứng như vậy dùng ở nhiều file sauwr sẽ rất lâu nên spring tập hộp các giá trị cứng lại 1 nơi
+                .setExpiration(new Date(present.getTime() + expiration))
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
 
     /**
-     *  kiểm tra token co hop le hay khong
+     * kiểm tra token co hop le hay khong
      *
      * @param token
      * @return

@@ -12,9 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired(required = false)
@@ -63,18 +64,18 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserModel loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
     }
 
     @Override
     public Boolean existByUserName(String name) {
-        return userRepository.existByUserName(name);
+        return userRepository.existsByUsername(name);
     }
 
     @Override
     public Boolean existByEmail(String email) {
-        return userRepository.existByEmail(email);
+        return userRepository.existsByEmail(email);
     }
 
 
