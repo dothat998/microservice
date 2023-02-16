@@ -6,6 +6,7 @@ import com.spring.model.GirlFriend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -24,7 +25,8 @@ public class SpringTutorialApplication {
 //
 //        System.out.println("Instance Dress: "+dress);
 //        //do interface k the tao 1 truc tiep 1 object => container da tu dong tim trong context va tu tao ra obj Dress do impl outfit
-//        //Instance Dress: com.spring.model.Dress@3122b117
+//        //Instance Dress: com.spring.model.Dress@3122b117UserRepository
+
 //        dress.wear();
 
 

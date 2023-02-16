@@ -49,10 +49,9 @@ public class LoginController {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
+
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         UserModel userModel = (UserModel) authentication.getPrincipal();
-
-
         jwtToken = jwtConfig.createToken(authentication);
         expiryDate = jwtConfig.getExpiryDate(jwtToken);
 

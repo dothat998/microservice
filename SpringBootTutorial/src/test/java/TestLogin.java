@@ -3,6 +3,7 @@ import com.spring.service.UserService;
 import com.spring.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class TestLogin {
     @Test
     public void addUser(){
         UserService userService = new UserServiceImpl();
-        List<UserDto> listUser = userService.getListUser();
+        Page<UserDto> listUser = userService.getListUser(0,1);
         assertThat(listUser).isNotNull();
 
     }

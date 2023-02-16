@@ -2,6 +2,8 @@ package com.sib.co.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class SibCoResponse <T>{
@@ -24,6 +26,7 @@ public class SibCoResponse <T>{
         this.message = message;
         this.data = data;
     }
+
 
     public String getCode() {
         return code;

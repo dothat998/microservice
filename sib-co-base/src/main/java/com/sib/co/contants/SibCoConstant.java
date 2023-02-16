@@ -6,7 +6,8 @@ import java.util.List;
 public class SibCoConstant {
     /*record status*/
     public static final String ACTIVE = "1";
-
+    public static final String DEFAULT_PAGE_NUM = "0" ;
+    public static final String DEFAULT_PAGE_SIZE = "10" ;
     private SibCoConstant() {
         throw new IllegalStateException("SibCoConstant class");
     }
