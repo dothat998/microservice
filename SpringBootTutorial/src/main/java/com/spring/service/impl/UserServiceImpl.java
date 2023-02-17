@@ -1,7 +1,6 @@
 package com.spring.service.impl;
 
 import com.sib.co.dto.Datatable;
-import com.sib.co.exception.CustomExceptionHandler;
 import com.sib.co.exception.NotFoundExceptionCustom;
 import com.sib.co.utils.MapperUtils;
 import com.spring.dto.UserDto;
@@ -68,11 +67,7 @@ public class UserServiceImpl implements UserService {
 
         Page<UserModel> userModels = userRepository.findAll(pageable);
         Page<UserDto> entities = modelPage.map(UserDto::fromEntity);
-//        Page<UserDto> collect = (Page<UserDto>) userModels.stream().map(obj -> MapperUtils.mapperEntAndDto(obj, UserDto.class))
-//                .collect(Collectors.toList());
         redisTemplate.opsForValue().set("userModels", entities);
-
-//        return (Page<UserDto>) redisTemplate.opsForValue().get("userModels");
         return entities;
     }
 
@@ -93,7 +88,7 @@ public class UserServiceImpl implements UserService {
             log.debug("==========    User Find By SQL DB  " + userDto.get().toString());
             return userDto.get();
         } else {
-            throw new NotFoundExceptionCustom("Khong thayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
+            throw new NotFoundExceptionCustom("Id not found "+id);
         }
     }
 
@@ -102,9 +97,6 @@ public class UserServiceImpl implements UserService {
         logger.debug("Start PostOfficesServiceImpl.search() ");
         List<UserDto> userDtoList = userRepositoryImpl.searchList(request);
         return searchPage(userDtoList, request.getCurrentPage(), request.getPageSize());
-//        return userRepositoryImpl.searchList(request);
-
-
     }
 
 

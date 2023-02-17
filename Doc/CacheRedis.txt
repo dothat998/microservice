@@ -1,0 +1,8 @@
+													Redis là gì?
+Remote Dictionary Server (Máy chủ từ điển từ xa):  là 1 kho lưu trữ dữ liệu dưới dạng key - value. Lưu trữ dữ liệu trong ram
+Redis tốc độ trả reqeust nhanh gấp 100 mysql
+Request gọi db trong cache => miss cache => gọi xuống db
+
+Cách tối ưu dùng cache để tránh conffilic -
+	Tính nhất quán nên sử dụng mô hình này
+1 - set db - 2 xoá cache - 3 đọc cache - 4 miss đọc db - 5 set lại cache

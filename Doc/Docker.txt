@@ -3,6 +3,15 @@ mk: centos
 
 sudo -s
 
+============================================================================================================================================================================
+											DOCKER _ WINDOWS
+
+Cài đặt ubuntu trong Microsoft Store - cài đặt các package : apt-get update or apt-get install -y mc
+
+
+
+
+
 docker run --name that_mysql -e MYSQL_ROOT_PASSWORD=That@123 -p 3333:3306 -d mysql:8.0.31
 docker run --name mysqlcontainer -e MYSQL_ROOT_PASSWORD=123456 -p 3333:3306 -d mysql:8.0.31
 

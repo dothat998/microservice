@@ -1,5 +1,8 @@
-package com.sib.co.exception;
+package com.spring.exception;
 
+
+import com.sib.co.exception.ErrorResponse;
+import com.sib.co.exception.NotFoundExceptionCustom;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,16 +14,16 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 @RestControllerAdvice
-public class CustomExceptionHandler {
+public class CustomException {
     @ExceptionHandler(NotFoundExceptionCustom.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public ErrorResponse handlerNotFoundEx(NotFoundExceptionCustom ex, WebRequest request){
+    public com.sib.co.exception.ErrorResponse handlerNotFoundEx(NotFoundExceptionCustom ex, WebRequest request){
         System.out.println(" CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC" +
                 " ");
-        return new ErrorResponse(HttpStatus.NOT_FOUND,ex.getMessage());
+        return new com.sib.co.exception.ErrorResponse(HttpStatus.NOT_FOUND,ex.getMessage());
     }
     @ExceptionHandler(NullPointerException.class) // exception handled
-    public ResponseEntity<ErrorResponse> handleNullPointerExceptions(
+    public ResponseEntity<com.sib.co.exception.ErrorResponse> handleNullPointerExceptions(
             Exception e
     ) {
         // ... potential custom logic
@@ -28,7 +31,7 @@ public class CustomExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND; // 404
 
         return new ResponseEntity<>(
-                new ErrorResponse(
+                new com.sib.co.exception.ErrorResponse(
                         status,
                         e.getMessage()
                 ),
@@ -38,7 +41,7 @@ public class CustomExceptionHandler {
 
     // fallback method
     @ExceptionHandler(Exception.class) // exception handled
-    public ResponseEntity<ErrorResponse> handleExceptions(
+    public ResponseEntity<com.sib.co.exception.ErrorResponse> handleExceptions(
             Exception e
     ) {
         // ... potential custom logic
