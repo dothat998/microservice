@@ -76,7 +76,13 @@ Authotication: Phân Quyền
 									JWT - Json Web Token
 
 JWT bao gồm 3 phần : Header - Payload - Signature
+Quy Trình loggin tạo token : 
 
+Vào request login : => loadUserByUsername (userService) : tìm user có trong hệ thống hay không?
+				=> buid user trên hệ thống
+				=> JwtProvider để createToken + validate token
+				=> Nếu có ngoại lệ thì nhảy sang JwtEntryPoint
+	 
 
 
 

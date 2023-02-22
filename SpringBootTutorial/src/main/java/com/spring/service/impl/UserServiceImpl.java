@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
         final boolean hasKey = redisTemplate.hasKey(key);
         if (hasKey) {
             final UserDto post = operations.get(key);
-            log.debug("=========  User find by cache : cache post >> " + post.toString());
+            logger.debug("=========  User find by cache : cache post >> " + post.toString());
             return post;
         }
         final Optional<UserModel> userModel = userRepository.findById((long) id);

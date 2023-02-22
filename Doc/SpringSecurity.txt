@@ -1,7 +1,48 @@
-Quy Trình loggin tạo token : 
+==============================================		Kafka tutorial		=============================================
 
-Vào request login : => loadUserByUsername (userService) : tìm user có trong hệ thống hay không?
-				=> buid user trên hệ thống
-				=> JwtProvider để createToken + validate token
-				=> Nếu có ngoại lệ thì nhảy sang JwtEntryPoint
-				=>
+
+Architecture (Kiến trúc)
+
+-	Kafka Cluster: tập hợp nhiều con kafka broker chạy độc lập với nhau, đảm bảo tất cả k bị sập cùng 1 lúc, chú ý trong môi trường product tối thiểu phải có 3 con,
+ 		và thường là số lẻ
+-	Zoo Keeper: là phần mềm quản lí tất cả của kafka như: broker,topics, offset, event,messegae.
+-	Event : là bất cứ dữ liệu nào theo chỉ định thời gian.
+-	Produce: là nhóm các ứng dụng gửi các event lên những broker server, thường gửi vào toppic.
+-	Consumer: là những ứng dụng đọc các event từ topic trong broker. 
+-	Consumer Group : tập hợp các csm trong 1 grp
+-	Kafka Broker: là 1 con sẻvver mang hình thức lưu trữ dữ liệu.
+-	Topic: giống như 1 danh mục để bố trí các event trong 1 broker - 1 broker server chưa nhiều topic
+											   - 1 topic có thể nhiều produce gửi event đến và nhiều consumer đọc event về 
+
+-	Partitions: là các thành phần nhỏ hơn để lưu trữ dữ liệu trong topic.
+			dc phân phối trong các brioker server khác nhau. 
+			VD: 1 topic có các - P1 
+						 - P2
+						 - P3
+						 - P4 
+Khi 1 event gửi lên cùng vs key thì sẽ dc sắp xếp đúng vào partition đó -> dc gắn theo 1 id dùng để xác định vị trí cái event đó trong partitions
+. và k dc phân bố sang partition khác
+và nếu khi gửi 1 event lên k có key thì event đó sẽ dc sắp ngẫu nhiên vào 1 partitions.
+
+Cài đặt kafka xong đó chạy server : zookeeper-server-start.bat ../../config/zookeeper.properties
+
+Tạo broker server => kết nối với zookeeper
+						kafka-server-start.bat ../../config/server.properties
+
+Tạo 1 toppic: 				kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+gửi thử 1 vài event lên topic có name :quickstart-events : 
+						kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+						This is my first event
+						This is my second event
+						
+Dọc các event trong topic : 		kafka-console-consumer.bat --topic quickstart-events --bootstrap-server localhost:9092
+
+Check các topic: C:\kafka\bin\windows>kafka-topics.bat --list --bootstrap-server localhost:9092
+
+================================== Triển khai trên spring boot ==========================================================
+
+Account Service (Producer) Tạo tài khoản người dùng ======> Pushlish Event =>>>> Kafka
+
+Notification Service (Consumer) Topic là Notification =====> ReadEvent => Kafka (Đọc từ 2 topic về)
+Statistic Service (Consumer)  Topic là Statistic =======> ReadEvent => Kafka ()

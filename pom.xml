@@ -14,7 +14,7 @@
         <module>customer</module>
         <module>employee</module>
         <module>security</module>
-        <module>accountservice</module>
+        <module>accountservice(producer)</module>
         <module>statistic</module>
         <module>notification</module>
         <module>SpringBootTutorial</module>

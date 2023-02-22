@@ -1,5 +1,6 @@
 package com.spring.config;
 
+import com.sib.co.contants.SibCoConstant;
 import com.spring.security.jwt.JwtAuthEntryPoint;
 import com.spring.security.jwt.JwtProvider;
 import com.spring.security.jwt.JwtTokenFilter;
@@ -34,9 +35,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests() //khi co-author dang nhap thi bat dau bat quyen truy cap
-                .antMatchers("/**").permitAll()
+//                .antMatchers("/**").permitAll()
                 .antMatchers("/api/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/v1/user").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/v1/user/signup").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/user").hasAuthority(SibCoConstant.CACHE_ADMIN)
+                .antMatchers(HttpMethod.GET,"/api/v1/user/1").hasRole(SibCoConstant.CACHE_ADMIN)
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint())

@@ -17,6 +17,7 @@ spring:
     serialization:
       write_dates_as_timestamps: false
 
+
   # ===============================
   # = Mysql configurations
   # ===============================
@@ -24,7 +25,6 @@ spring:
     url: jdbc:mysql://localhost:3306/dothatspring?useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: root
     password: Dothat998
-
   # ===============================
   # = Redis configurations
   # ===============================ß
