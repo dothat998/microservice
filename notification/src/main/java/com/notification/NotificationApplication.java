@@ -14,9 +14,14 @@ public class NotificationApplication {
         SpringApplication.run(NotificationApplication.class,args);
     }
 
+
     //convert Byte => object
     @Bean
     JsonMessageConverter converter(){
         return new JsonMessageConverter();
     }
+
+
 }
+
+

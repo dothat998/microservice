@@ -16,6 +16,8 @@ public class AccountServiceApplication {
         return new NewTopic("notification",2,(short) 1);
     }
 
+
+
     @Bean
     NewTopic statistic(){
         return new NewTopic("statistic",1,(short) 1);

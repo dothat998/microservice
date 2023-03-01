@@ -1,5 +1,6 @@
 package com.notification.service.impl;
 
+import com.notification.request.dto.AccountDTO;
 import com.notification.request.dto.MessageDTO;
 import com.notification.service.EmailService;
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class EmailServiceImpl implements EmailService {
@@ -58,8 +61,10 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public MessageDTO getAccountKafka(MessageDTO messageDTO) {
-
-        return messageDTO;
+    public List<AccountDTO> getAccountKafka() {
+        List<AccountDTO> accountDTOS =new ArrayList<>();
+        return accountDTOS;
     }
+
+
 }

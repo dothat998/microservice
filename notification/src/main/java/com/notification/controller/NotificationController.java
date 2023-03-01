@@ -7,6 +7,8 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Gui email thong bao
  */
@@ -20,8 +22,9 @@ public class NotificationController {
     public void sendNotification(@RequestBody MessageDTO messageDTO){
         messageService.listen(messageDTO);
     }
-    @GetMapping("/send")
-    public void getAccount(@RequestBody MessageDTO messageDTO){
-        messageService.getAccount(messageDTO);
+
+    @GetMapping("/list")
+    public void getAccount(){
+        messageService.getAccount();
     }
 }
