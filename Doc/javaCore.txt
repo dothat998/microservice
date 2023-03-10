@@ -29,3 +29,45 @@ VD : NullPointerException, chúng ta cần handler nó ra.
 @ExceptionHandler : đánh dấu method sẽ sử lý ex cụ thể trong controller => chỉ sử dụng được trong 1 controller cụ thể
 @HandlerExceptionResolver :Global hơn Exception cho phép tự custom 1 handlerex
 @ControlerAdivce: đến từ AOP lập trình hướng khía cạnh, nó sẽ bắt lỗi và trả ra cho client mà k cần qua controller
+
+
+
+============================================================================================================================================================
+							Vòng đời (các trạng thái) của một Thread trong java
+
+NEW  : Là trạng thái khi luồng vừa được khởi tạo bằng phương thức khởi tạo của lớp Thread nhưng chưa được start()
+					=> luồng được tạo ra nhưng chưa được cấp phát tài nguyên và cũng chưa chạy.  => Ngoại lệ : IllegalThreadStateException khi ép stop,resume, suspen
+
+RUNNABLE : Sau khi gọi method Start thì luồng dc cấp phát tài nguyên và các lịch điều phối CPU cho luông test bắt đầu có hiệu lực.
+					=> đây là trạng thái runnable chứ k phải là running, luồng không thực sự luôn chạy mà tuỳ vào hệ thống mà có sự điều phối CPu khác nhau.
+
+WAITING : Thread chờ không giới hạn cho đến khi 1 luồng khác đánh thức nó.bằng notify hoặc notifyAll
+
+TIMED_WAITING : Thread chờ trong 1 thời gian nhất định, hoặc là có 1 luồng khác đánh thức nó.bằng notify hoặc notifyAll
+
+BLOCKED : đây là trạng thái NOT_Runnable là trạng thái thread vẫn còn sống, nhưng hiện tại không được chạy.Thread chờ một monitor để unlock một đối tượng mà nó cần.
+
+TERMINATED : Một thread ở trong trạng thái terminated hoặc dead khi phương thức run() của nó bị thoát. => bằng lệnh stop hoặc destroy
+
+============================================================================================================================================================
+								Khi nào dùng Thread và Runnable
+
+
+Tạo 1 tiến trình nhiều luồng : extend Thread
+						=> MyThread th = new MyThread();
+					 implement Runnable
+						=> Thread th = new Thread( new MyThread ());
+
+
+==> Khi muốn chia sẻ biến giữa các Thread trong process thì nên implement Runnable.(hay làm)
+
+
+
+
+
+
+
+
+
+
+

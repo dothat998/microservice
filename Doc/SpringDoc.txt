@@ -10,7 +10,19 @@ Business logic : (Service) chứa toàn bộ code logic ở đây
 Data access layer: (Repository) Tương tác với database trả kết quả về tầng business logic
 
 ============================================================================================================================================================
-	
+
+											Bean Life Cycle
+
+
+Khi IoC Container (ApplicationContext) tìm thấy một Bean cần quản lý, nó sẽ khởi tạo bằng Constructor
+inject dependencies vào Bean bằng Setter, và thực hiện các quá trình cài đặt khác vào Bean như setBeanName, setBeanClassLoader, v.v..
+Hàm đánh dấu @PostConstruct được gọi
+Tiền xử lý sau khi @PostConstruct được gọi.
+Bean sẵn sàng để hoạt động
+Nếu IoC Container không quản lý bean nữa hoặc bị shutdown nó sẽ gọi hàm @PreDestroy trong Bean
+Xóa Bean.
+
+
 Bean là :thực chất là các object java, khác biệt ở chỗ là dc container tạo ra và quản lý.
 		obj java do chính các dev gọi hàm new tạo ra và đến lúc destroy.
 
@@ -59,18 +71,9 @@ Authotication: Phân Quyền
 			=> RBAC ( Role Base Access Control) => 1 role có nhiều quyền
 									=> 1 người có nhiều role
 
-============================================================================================================================================================
-									Spring security - Authorization
-=> Cốt lõi spring security là 1 loạt các bộ lọc servlert giúp thêm Authentication và authotication vào ứng dụng web.
-
-Role và Authority
 
 
-
-
-
-
-============================================================================================================================================================
+=============================================================================================================================================================
 									JWT - Json Web Token
 
 JWT bao gồm 3 phần : Header - Payload - Signature
@@ -81,16 +84,11 @@ Vào request login : => loadUserByUsername (userService) : tìm user có trong h
 				=> JwtProvider để createToken + validate token
 				=> Nếu có ngoại lệ thì nhảy sang JwtEntryPoint
 	 
+=============================================================================================================================================================
+									Spring security - Authorization
+=> Cốt lõi spring security là 1 loạt các bộ lọc servlert giúp thêm Authentication và authotication vào ứng dụng web.
 
-
-============================================================================================================================================================
-
-
-
-
-
-
-
+Role và Authority
 
 
 
