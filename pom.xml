@@ -12,19 +12,20 @@
 
     <modules>
         <module>customer</module>
-        <module>employee</module>
-        <module>security</module>
-        <module>accountservice(producer)</module>
-        <module>statistic</module>
-        <module>notification</module>
+        <module>gateway</module>
+        <module>accountservice-producer</module>
+        <module>notification-consumer</module>
         <module>SpringBootTutorial</module>
         <module>sib-co-base</module>
+        <module>spring-rabbitmq-producer</module>
+        <module>discovery-server</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
-        <spring.boot.dependecies.version>2.5.7</spring.boot.dependecies.version>
+        <spring.boot.maven.plugin.version>2.7.3</spring.boot.maven.plugin.version>
+        <spring.boot.dependecies.version>2.7.3</spring.boot.dependecies.version>
+        <spring-cloud.version>2021.0.2</spring-cloud.version>
     </properties>
 
 
@@ -36,6 +37,13 @@
                 <version>${spring.boot.dependecies.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -52,9 +60,15 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--            <version>${spring-cloud.version}</version>-->
+<!--            <type>pom</type>-->
+<!--            <scope>import</scope>-->
+<!--        </dependency>-->
+<!--        -->
     </dependencies>
-
-
     <build>
         <pluginManagement>
             <plugins>

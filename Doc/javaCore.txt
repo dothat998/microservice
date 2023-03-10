@@ -17,3 +17,15 @@ Array là truy xuất ngẫu nhiên các phần tử => thao tác lấy ra các 
 Linked List không thể truy xuất ngẫu nhiên : phải duyệt từ đầu đến cuối để tìm ra phần tử
 							 => truy xuất chậm hơn array
 							 => thao tác thêm xoá nhanh hơn vì k cần sắp xếp lại các phần tử, mà chỉ cần cập nhập lại tham chiếu tới phần tử trước và sau nó.
+============================================================================================================================================================
+										 Exception 
+Checked exception:  là những ngoại lệ mà phải được xử lý hoặc được đề nghị xử lí trong code. VD: 1 không thể chia dc cho 0, IDE hiện dấu đỏ để ta sửa
+IOException, SQLException
+
+Unchecked exception: là những ngoại lệ không bắt buộc phải xử lý, chúng xuất hiện do lỗi logic hoặc các lỗi khác trong chương trình
+VD : NullPointerException, chúng ta cần handler nó ra.
+
+
+@ExceptionHandler : đánh dấu method sẽ sử lý ex cụ thể trong controller => chỉ sử dụng được trong 1 controller cụ thể
+@HandlerExceptionResolver :Global hơn Exception cho phép tự custom 1 handlerex
+@ControlerAdivce: đến từ AOP lập trình hướng khía cạnh, nó sẽ bắt lỗi và trả ra cho client mà k cần qua controller

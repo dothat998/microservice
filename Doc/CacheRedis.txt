@@ -6,3 +6,5 @@ Request gọi db trong cache => miss cache => gọi xuống db
 Cách tối ưu dùng cache để tránh conffilic -
 	Tính nhất quán nên sử dụng mô hình này
 1 - set db - 2 xoá cache - 3 đọc cache - 4 miss đọc db - 5 set lại cache
+
+chạy server : redis-server

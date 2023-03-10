@@ -3,6 +3,7 @@ package com.spring.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +16,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
+@Primary
 @Setter
 @Getter
 @Entity

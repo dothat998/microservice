@@ -1,14 +1,14 @@
 package com.spring.controller;
 
 import com.sib.co.contants.SibCoConstant;
-import com.sib.co.dto.Datatable;
-import com.sib.co.response.SibCoResponse;
+import com.spring.dto.Datatable;
 import com.spring.dto.UserDto;
 import com.spring.model.Role;
 import com.spring.model.RoleName;
 import com.spring.model.UserModel;
 import com.spring.request.SignUpRequest;
 import com.spring.request.UserRequest;
+import com.spring.response.SibCoResponse;
 import com.spring.service.RoleService;
 import com.spring.service.UserService;
 import org.slf4j.Logger;
@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ import java.util.Set;
 
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/sibspring")
 public class UserController {
     private final Logger log = LoggerFactory.getLogger(UserController.class);
 
@@ -60,7 +61,7 @@ public class UserController {
         return null;
     }
 
-    @GetMapping
+    @GetMapping("/page")
     public ResponseEntity<SibCoResponse<Page<UserDto>>> getListUser(
             @RequestParam(value = "page", defaultValue = SibCoConstant.DEFAULT_PAGE_NUM) Integer page,
             @RequestParam(value = "size", defaultValue = SibCoConstant.DEFAULT_PAGE_SIZE) Integer size) {
@@ -74,8 +75,9 @@ public class UserController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping(value = "/search")
+
     public ResponseEntity<SibCoResponse<Datatable>> search(@RequestBody UserRequest request, HttpServletRequest httpServletRequest) {
         log.debug(" Input request search User: \n {}", request);
         return ResponseEntity.ok(new SibCoResponse<>("200", "OK", userService.search(request, httpServletRequest)));
@@ -108,11 +110,11 @@ public class UserController {
 
         strRoles.forEach(role -> {
             switch (role) {
-                case "admin":
+                case "ADMIN":
                     Role adminRole = roleService.findByName(RoleName.ADMIN).orElseThrow(() -> new RuntimeException("Role not found"));
                     roles.add(adminRole);
                     break;
-                case "pm":
+                case "PM":
                     Role pmRole = roleService.findByName(RoleName.PM).orElseThrow(() -> new RuntimeException("Role not found"));
                     roles.add(pmRole);
                     break;
@@ -136,5 +138,23 @@ public class UserController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/pm")
+    @PreAuthorize("hasAuthority('PM')")
+    public String pmshow() {
+        return "Day la Role PM";
+    }
+
+    @GetMapping("/admin")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String adminshow() {
+        return "Day la Role admin";
+    }
+
+    @GetMapping("/user")
+    @PreAuthorize("hasAuthority('USER')")
+    public String usershow() {
+        return "Day la Role user";
     }
 }

@@ -6,6 +6,7 @@ com\base\customer\service\impl\CustomerServiceImpl.class
 com\base\customer\service\CustomerService.class
 com\base\customer\config\CustomerConfig.class
 com\base\customer\controller\test.class
+com\base\customer\test.class
 com\base\customer\entity\Customer.class
 com\base\customer\request\CustomerRequest.class
 com\base\customer\entity\Customer$CustomerBuilder.class

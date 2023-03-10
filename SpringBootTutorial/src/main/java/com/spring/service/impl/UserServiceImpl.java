@@ -1,8 +1,13 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package com.spring.service.impl;
 
-import com.sib.co.dto.Datatable;
 import com.sib.co.exception.NotFoundExceptionCustom;
 import com.sib.co.utils.MapperUtils;
+import com.spring.dto.Datatable;
 import com.spring.dto.UserDto;
 import com.spring.exception.ResourceNotFoundException;
 import com.spring.model.UserModel;
@@ -10,8 +15,11 @@ import com.spring.repository.UserRepository;
 import com.spring.repository.impl.UserRepositoryImpl;
 import com.spring.request.UserRequest;
 import com.spring.service.UserService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,118 +28,101 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
-
-@Slf4j
-@RequiredArgsConstructor
 @Service("userService")
 public class UserServiceImpl implements UserService {
-
-
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-
     public static final String HASH_KEY = "user";
-    @Autowired
+    @Autowired(
+            required = true
+    )
     UserRepository userRepository;
-
     @Autowired
     UserRepositoryImpl userRepositoryImpl;
-
     @Autowired
     private RedisTemplate redisTemplate;
-    private static ArrayList<UserModel> user = new ArrayList<UserModel>();
+    private static ArrayList<UserModel> user = new ArrayList();
 
-
-    /*
-     * @author: ThatND
-     * @since: 7/2/2023 2:52 PM
-     * @description:
-     * @update:
-     *
-     * */
-
-    @Override
     public Page<UserDto> getListUser(Integer page, Integer size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(
-                Sort.Order.desc("id")));
-        Page<UserModel> modelPage = userRepository.findAll(pageable);
-
-        Page<UserModel> userModels = userRepository.findAll(pageable);
+        Pageable pageable = PageRequest.of(page, size, Sort.by(new Sort.Order[]{Order.desc("id")}));
+        Page<UserModel> modelPage = this.userRepository.findAll(pageable);
+        this.userRepository.findAll(pageable);
         Page<UserDto> entities = modelPage.map(UserDto::fromEntity);
-        redisTemplate.opsForValue().set("userModels", entities);
+        this.redisTemplate.opsForValue().set("userModels", entities);
         return entities;
     }
 
-    @Override
+    @Transactional
+    public List<UserDto> sheduling(UserRequest userRequest, HttpServletRequest request, boolean schedule) {
+        List<UserDto> userDtoList = this.userRepositoryImpl.searchList(userRequest);
+        if (null != userDtoList) {
+            this.logger.info("van con data trong list");
+        }
+
+        return userDtoList;
+    }
+
     public UserDto getListUserId(int id) {
         String key = "user_" + id;
-        final ValueOperations<String, UserDto> operations = redisTemplate.opsForValue();
-        final boolean hasKey = redisTemplate.hasKey(key);
+        ValueOperations<String, UserDto> operations = this.redisTemplate.opsForValue();
+        boolean hasKey = this.redisTemplate.hasKey(key);
         if (hasKey) {
-            final UserDto post = operations.get(key);
-            logger.debug("=========  User find by cache : cache post >> " + post.toString());
+            UserDto post = (UserDto)operations.get(key);
+            this.logger.debug("=========  User find by cache : cache post >> " + post.toString());
             return post;
-        }
-        final Optional<UserModel> userModel = userRepository.findById((long) id);
-        final Optional<UserDto> userDto = Optional.ofNullable(MapperUtils.mapperEntAndDto(userModel, UserDto.class));
-        if (userDto.isPresent()) {
-            operations.set(key, userDto.get(), 30, TimeUnit.SECONDS);
-            log.debug("==========    User Find By SQL DB  " + userDto.get().toString());
-            return userDto.get();
         } else {
-            throw new NotFoundExceptionCustom("Id not found "+id);
+            Optional<UserModel> userModel = this.userRepository.findById((long)id);
+            Optional<UserDto> userDto = Optional.ofNullable(MapperUtils.mapperEntAndDto(userModel, UserDto.class));
+            if (userDto.isPresent()) {
+                operations.set(key, userDto.get(), 30L, TimeUnit.SECONDS);
+                log.debug("==========    User Find By SQL DB  " + ((UserDto)userDto.get()).toString());
+                return (UserDto)userDto.get();
+            } else {
+                throw new NotFoundExceptionCustom("Id not found " + id);
+            }
         }
     }
 
-    @Override
     public Datatable search(UserRequest request, HttpServletRequest httpServletRequest) {
-        logger.debug("Start PostOfficesServiceImpl.search() ");
-        List<UserDto> userDtoList = userRepositoryImpl.searchList(request);
-        return searchPage(userDtoList, request.getCurrentPage(), request.getPageSize());
+        this.logger.debug("Start PostOfficesServiceImpl.search() ");
+        List<UserDto> userDtoList = this.userRepositoryImpl.searchList(request);
+        return this.searchPage(userDtoList, request.getCurrentPage(), request.getPageSize());
     }
 
-
-    @Override
     public UserModel loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username);
+        return this.userRepository.findByUsername(username);
     }
 
-    @Override
     public Boolean existByUserName(String name) {
-        return userRepository.existsByUsername(name);
+        return this.userRepository.existsByUsername(name);
     }
 
-    @Override
     public Boolean existByEmail(String email) {
-        return userRepository.existsByEmail(email);
+        return this.userRepository.existsByEmail(email);
     }
 
-
-    @Override
     public UserModel save(UserModel userModel) {
-        return userRepository.save(userModel);
+        return this.userRepository.save(userModel);
     }
 
-    @Override
     public void deleteUser(Long id) {
-        final String key = "emp_" + id;
-        final boolean hasKey = redisTemplate.hasKey(key);
+        String key = "emp_" + id;
+        boolean hasKey = this.redisTemplate.hasKey(key);
         if (hasKey) {
-            redisTemplate.delete(key);
+            this.redisTemplate.delete(key);
             log.info("EmployeeServiceImpl.deletePost() : cache delete ID >> " + id);
         }
-        final Optional<UserModel> user = userRepository.findById(id);
+
+        Optional<UserModel> user = this.userRepository.findById(id);
         if (user.isPresent()) {
-            userRepository.delete(user.get());
+            this.userRepository.delete(user.get());
         } else {
             throw new ResourceNotFoundException();
         }
@@ -139,7 +130,7 @@ public class UserServiceImpl implements UserService {
 
     private Datatable searchPage(List<?> lst, Integer currentPage, Integer pageSize) {
         Datatable datatable = new Datatable();
-        List<Object> lstResult = new ArrayList<>();
+        List<Object> lstResult = new ArrayList();
         if (CollectionUtils.isNotEmpty(lst)) {
             datatable.setTotalRecords(lst.size());
             if (currentPage != null && pageSize != null) {
@@ -147,26 +138,33 @@ public class UserServiceImpl implements UserService {
                 if (count % pageSize == 0) {
                     datatable.setTotalPages(count / pageSize);
                 } else {
-                    datatable.setTotalPages((count / pageSize) + 1);
+                    datatable.setTotalPages(count / pageSize + 1);
                 }
+
                 if (currentPage > 0 && currentPage <= datatable.getTotalPages()) {
                     int rowStart = (currentPage - 1) * pageSize;
                     int pageSizeTotal = rowStart + pageSize;
+                    int i;
                     if (count >= pageSizeTotal) {
-                        for (int i = rowStart; i < pageSizeTotal; i++) {
+                        for(i = rowStart; i < pageSizeTotal; ++i) {
                             lstResult.add(lst.get(i));
                         }
                     } else {
-                        for (int i = rowStart; i < count; i++) {
+                        for(i = rowStart; i < count; ++i) {
                             lstResult.add(lst.get(i));
                         }
                     }
                 }
+
                 datatable.setData(lstResult);
             }
+
             lst.clear();
         }
+
         return datatable;
     }
 
+    public UserServiceImpl() {
+    }
 }

@@ -1,0 +1,17 @@
+													Microservice
+Kiến trúc : chia để trị, chia nhỏ thành các project java web nhỏ để quản lý.
+Spring cloud framework hỗ trợ để quản lý project.
+
+CLIENTM (máy khách) : Angular, mobile 
+
+API GATEWAY(ZUUL) : đóng vai trò là cửa ngõ đầu vào : mọi request từ client gửi lên sẽ đi qua apigateway,
+					 thằng Service Discovery(ERUKA dò tìm đúng service để trả ra kết quả.
+
+SERVICE DISCOVERY (ERUKA) : đóng vai trò đăng kí những service nhỏ vào trong hệ thống. 
+				   API GATEWAY(ZUUL) sẽ dựa vào Service Discovery(ERUKA) này để dẫn các đường dẫn gọi từ request về đến đúng service
+ 
+CONFIG SERVICE : đóng vai trò lưu tất cả các config cho toàn bộ hệ thống, cấu hình ở 1 chỗ mà k cần cấu hình cho từng service.
+
+AUTH SERVICE (Xác thực) : oauth 2 , jwt....
+
+LOG ANALYSIS : ghi lại log

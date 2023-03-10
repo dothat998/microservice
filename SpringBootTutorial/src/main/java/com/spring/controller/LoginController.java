@@ -24,7 +24,7 @@ import javax.validation.Valid;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/api/auth")
+@RequestMapping("/api/sibspring")
 public class LoginController {
     @Autowired
     private AuthenticationManager authenticationManager;

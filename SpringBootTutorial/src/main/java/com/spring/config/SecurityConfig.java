@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -19,9 +20,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = false, jsr250Enabled = false)
+//kích hoạt cả 3 cách phân quyền phương thức. Thực tế trong bài viết này, tôi chỉ ví dụ cách mới nhất là prePostEnabled = true sử dụng Spring Expression Language.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired(required = true)
     private UserService userService;
@@ -35,11 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests() //khi co-author dang nhap thi bat dau bat quyen truy cap
-//                .antMatchers("/**").permitAll()
-                .antMatchers("/api/auth/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/v1/user/signup").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/v1/user").hasAuthority(SibCoConstant.CACHE_ADMIN)
-                .antMatchers(HttpMethod.GET,"/api/v1/user/1").hasRole(SibCoConstant.CACHE_ADMIN)
+                .antMatchers(HttpMethod.POST, "/api/sibspring/signup").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/sibspring/signing").permitAll()
+                .antMatchers( "/api/sibspring/search").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint())

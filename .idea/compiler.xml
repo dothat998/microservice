@@ -7,15 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="notification" />
-        <module name="statistic" />
-        <module name="security" />
+        <module name="notification-consumer" />
+        <module name="accountservice-producer" />
+        <module name="discovery-server" />
+        <module name="spring-rabbitmq-producer" />
         <module name="SpringBootTutorial" />
-        <module name="employee" />
-        <module name="accountservice" />
+        <module name="gateway" />
         <module name="customer" />
         <module name="sib-co-base" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="employee" target="1.8" />
+      <module name="statistic" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

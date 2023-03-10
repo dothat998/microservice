@@ -1,0 +1,7 @@
+													RabbitMQ
+Tại sao sử dụng Message Queue (RbMQ,Kafka):  khi có quá nhiều request gửi đến
+
+
+
+
+Ưu điểm và nhược điểm của Message Queue

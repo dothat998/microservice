@@ -44,18 +44,7 @@ Muốn ưu tiên 1 bean bằng cách : => @Primary vào bên trên class muốn 
 RestFul API
 RequestMapping : nếu không chỉ rõ là method nào, thì khi chạy API nó sẽ chỉ cần đúng đường dẫn là chạy được.
 
-============================================================================================================================================================
-										 Exception 
-Checked exception:  là những ngoại lệ mà phải được xử lý hoặc được đề nghị xử lí trong code. VD: 1 không thể chia dc cho 0, IDE hiện dấu đỏ để ta sửa
-IOException, SQLException
 
-Unchecked exception: là những ngoại lệ không bắt buộc phải xử lý, chúng xuất hiện do lỗi logic hoặc các lỗi khác trong chương trình
-VD : NullPointerException, chúng ta cần handler nó ra.
-
-
-@ExceptionHandler : đánh dấu method sẽ sử lý ex cụ thể trong controller => chỉ sử dụng được trong 1 controller cụ thể
-@HandlerExceptionResolver :Global hơn Exception cho phép tự custom 1 handlerex
-@ControlerAdivce: đến từ AOP lập trình hướng khía cạnh, nó sẽ bắt lỗi và trả ra cho client mà k cần qua controller
 
 ============================================================================================================================================================
 Usermanagement : Đăng kí tài khoản + cập nhật(email, pass..) + search .....
@@ -63,14 +52,23 @@ Usermanagement : Đăng kí tài khoản + cập nhật(email, pass..) + search 
 Authentication: Xác thực người dùng => thường được thực hiện bằng kiểm tra username và password.
 			=> cơ chế (built in application)  
 			=> nhờ bên thứ 3 (facebooke, gmail,zalo) => OAuth1 + OAuth2 + SpringScurity
+
+
 Authotication: Phân Quyền
 			=> Role
 			=> RBAC ( Role Base Access Control) => 1 role có nhiều quyền
 									=> 1 người có nhiều role
 
 ============================================================================================================================================================
-									Spring security
+									Spring security - Authorization
 => Cốt lõi spring security là 1 loạt các bộ lọc servlert giúp thêm Authentication và authotication vào ứng dụng web.
+
+Role và Authority
+
+
+
+
+
 
 ============================================================================================================================================================
 									JWT - Json Web Token
@@ -85,7 +83,7 @@ Vào request login : => loadUserByUsername (userService) : tìm user có trong h
 	 
 
 
-
+============================================================================================================================================================
 
 
 

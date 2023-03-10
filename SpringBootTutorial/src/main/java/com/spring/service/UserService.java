@@ -1,6 +1,6 @@
 package com.spring.service;
 
-import com.sib.co.dto.Datatable;
+import com.spring.dto.Datatable;
 import com.spring.dto.UserDto;
 import com.spring.model.UserModel;
 import com.spring.request.UserRequest;

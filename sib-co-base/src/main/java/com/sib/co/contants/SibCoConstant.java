@@ -6,8 +6,9 @@ import java.util.List;
 public class SibCoConstant {
     /*record status*/
     public static final String ACTIVE = "1";
-    public static final String DEFAULT_PAGE_NUM = "0" ;
-    public static final String DEFAULT_PAGE_SIZE = "10" ;
+    public static final String DEFAULT_PAGE_NUM = "0";
+    public static final String DEFAULT_PAGE_SIZE = "10";
+
     private SibCoConstant() {
         throw new IllegalStateException("SibCoConstant class");
     }
@@ -73,7 +74,9 @@ public class SibCoConstant {
     public static final String CACHE_UTILITY_CITY = "UTILITY_CITY";
     public static final String CACHE_UTILITY_LIST_SERVICE = "UTILITY_LIST_SERVICE";
     public static final String CACHE_UTILITY_LIST_PROVIDER = "UTILITY_LIST_PROVIDER";
-    public static final String CACHE_ADMIN = "ADMIN";
+    public static final String ADMIN = "ADMIN";
+    public static final String USER = "USER";
+    public static final String PM = "PM";
     public static final String CACHE_ACCOUNT_LIST = "ACCOUNT_LIST";// list all account
     public static final String CACHE_ACCOUNT_LIST_CURRENT = "ACCOUNT_LIST_CURRENT";// list account payment
     public static final String CACHE_ACCOUNT_LC2 = "ACCOUNT_LIST_LC2";// Danh sach thu tin dung
@@ -202,6 +205,12 @@ public class SibCoConstant {
         public static final String ROLE_GDV = "AGENT-GDV";
     }
 
+
+    public static final String QUEUE_NAME = "queue_name";
+
+    public static final String EXCHANGE_NAME = "exchange_name";
+
+    public static final String ROUTING_KEY = "rabbitmq.*";
     public static final String API_LDAP_AUTH = "API_LDAP_AUTH";
 
     /**
