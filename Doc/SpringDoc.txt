@@ -16,9 +16,11 @@ Data access layer: (Repository) Tương tác với database trả kết quả v�
 
 Khi IoC Container (ApplicationContext) tìm thấy một Bean cần quản lý, nó sẽ khởi tạo bằng Constructor
 inject dependencies vào Bean bằng Setter, và thực hiện các quá trình cài đặt khác vào Bean như setBeanName, setBeanClassLoader, v.v..
-Hàm đánh dấu @PostConstruct được gọi
-Tiền xử lý sau khi @PostConstruct được gọi.
+
+@PostConstruct được gọi ngay sau khi Bean được tạo.
+@PreDestroy => Đối tượng Bean trước khi bị destroy thì chạy hàm.
 Bean sẵn sàng để hoạt động
+
 Nếu IoC Container không quản lý bean nữa hoặc bị shutdown nó sẽ gọi hàm @PreDestroy trong Bean
 Xóa Bean.
 
