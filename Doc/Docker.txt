@@ -50,7 +50,7 @@ Map port: 8085(Host) <=> 8083(Container)
 - Pull and start/run a container
 docker run -dp 8085:8083 \
 --name springboot-docker-container \
--v "$(pwd):/app" \
+-v "$(pwd):/app" \   (có thể để đường dẫn volum bằng đường dẫn của mk : bằng cách thay thế $(pwd) = đường dẫn chi tiết)
 --network springboot-app-network \
 sunlight4d/springboot-docker:v1.0.0
 

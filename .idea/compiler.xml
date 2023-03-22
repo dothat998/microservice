@@ -10,11 +10,12 @@
         <module name="notification-consumer" />
         <module name="accountservice-producer" />
         <module name="discovery-server" />
+        <module name="Java-Core" />
         <module name="spring-rabbitmq-producer" />
         <module name="SpringBootTutorial" />
         <module name="gateway" />
-        <module name="customer" />
         <module name="sib-co-base" />
+        <module name="customer-resttemplate" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

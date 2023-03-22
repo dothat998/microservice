@@ -69,6 +69,8 @@ public class UserServiceImpl implements UserService {
         return userDtoList;
     }
 
+
+    //redis cache
     public UserDto getListUserId(int id) {
         String key = "user_" + id;
         ValueOperations<String, UserDto> operations = this.redisTemplate.opsForValue();

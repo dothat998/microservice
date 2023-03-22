@@ -28,10 +28,4 @@ public class MessageServiceImpl implements MessageService {
         emailService.sendEmail(messageDTO);
     }
 
-    @KafkaListener(id = "dothatGroup", topics = "dothat")
-    public List<AccountDTO> getAccount() {
-        List<AccountDTO> accountKafka = emailService.getAccountKafka();
-        logger.debug("List Account {}",accountKafka);
-        return accountKafka;
-    }
 }

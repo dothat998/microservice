@@ -3,94 +3,94 @@
 
 TierLayer trong springboot
 
-Persentation layer : Tương tác với người dùng bằng Controller + view + api
+Persentation layer : TÆ°Æ¡ng tÃ¡c vá»›i ngÆ°á»i dÃ¹ng báº±ng Controller + view + api
 
-Business logic : (Service) chứa toàn bộ code logic ở đây
+Business logic : (Service) chá»©a toÃ n bá»™ code logic á»Ÿ Ä‘Ã¢y
 
-Data access layer: (Repository) Tương tác với database trả kết quả về tầng business logic
+Data access layer: (Repository) TÆ°Æ¡ng tÃ¡c vá»›i database tráº£ káº¿t quáº£ vá» táº§ng business logic
 
 ============================================================================================================================================================
 
 											Bean Life Cycle
 
 
-Khi IoC Container (ApplicationContext) tìm thấy một Bean cần quản lý, nó sẽ khởi tạo bằng Constructor
-inject dependencies vào Bean bằng Setter, và thực hiện các quá trình cài đặt khác vào Bean như setBeanName, setBeanClassLoader, v.v..
+Khi IoC Container (ApplicationContext) tÃ¬m tháº¥y má»™t Bean cáº§n quáº£n lÃ½, nÃ³ sáº½ khá»Ÿi táº¡o báº±ng Constructor
+inject dependencies vÃ o Bean báº±ng Setter, vÃ  thá»±c hiá»‡n cÃ¡c quÃ¡ trÃ¬nh cÃ i Ä‘áº·t khÃ¡c vÃ o Bean nhÆ° setBeanName, setBeanClassLoader, v.v..
 
-@PostConstruct được gọi ngay sau khi Bean được tạo.
-@PreDestroy => Đối tượng Bean trước khi bị destroy thì chạy hàm.
-Bean sẵn sàng để hoạt động
+@PostConstruct Ä‘Æ°á»£c gá»i ngay sau khi Bean Ä‘Æ°á»£c táº¡o.
+@PreDestroy => Äá»‘i tÆ°á»£ng Bean trÆ°á»›c khi bá»‹ destroy thÃ¬ cháº¡y hÃ m.
+Bean sáºµn sÃ ng Ä‘á»ƒ hoáº¡t Ä‘á»™ng
 
-Nếu IoC Container không quản lý bean nữa hoặc bị shutdown nó sẽ gọi hàm @PreDestroy trong Bean
-Xóa Bean.
+Náº¿u IoC Container khÃ´ng quáº£n lÃ½ bean ná»¯a hoáº·c bá»‹ shutdown nÃ³ sáº½ gá»i hÃ m @PreDestroy trong Bean
+XÃ³a Bean.
 
 
-Bean là :thực chất là các object java, khác biệt ở chỗ là dc container tạo ra và quản lý.
-		obj java do chính các dev gọi hàm new tạo ra và đến lúc destroy.
+Bean lÃ  :thá»±c cháº¥t lÃ  cÃ¡c object java, khÃ¡c biá»‡t á»Ÿ chá»— lÃ  dc container táº¡o ra vÃ  quáº£n lÃ½.
+		obj java do chÃ­nh cÃ¡c dev gá»i hÃ m new táº¡o ra vÃ  Ä‘áº¿n lÃºc destroy.
 
-@Component => đánh dấu là 1 Bean => ApplicationContext.getBean(Class.class)
+@Component => Ä‘Ã¡nh dáº¥u lÃ  1 Bean => ApplicationContext.getBean(Class.class)
 
-@ComponentScant để quét các bean dc chỉ định.
+@ComponentScant Ä‘á»ƒ quÃ©t cÃ¡c bean dc chá»‰ Ä‘á»‹nh.
 
-@Autowrite : tự động tìm trong container và khởi tạo 
-		==> 3 cách sử dụng anotation này : 
-								=> @Autowired ngay trên thuộc tính (thường dc sử dụng) tự tạo ra và inject vào
-								=> Thêm vào trên contrucstor
-								=> Thêm vào phương thức setter của thuộc tính đó
+@Autowrite : tá»± Ä‘á»™ng tÃ¬m trong container vÃ  khá»Ÿi táº¡o 
+		==> 3 cÃ¡ch sá»­ dá»¥ng anotation nÃ y : 
+								=> @Autowired ngay trÃªn thuá»™c tÃ­nh (thÆ°á»ng dc sá»­ dá»¥ng) tá»± táº¡o ra vÃ  inject vÃ o
+								=> ThÃªm vÃ o trÃªn contrucstor
+								=> ThÃªm vÃ o phÆ°Æ¡ng thá»©c setter cá»§a thuá»™c tÃ­nh Ä‘Ã³
 
-DI: khởi tạo giá trị trong class, cùi bắp, vì 1 class có nhiều DI mà DI lại phụ thuộc thằng khác, thì lại khó khăn để khởi tạo.
+DI: khá»Ÿi táº¡o giÃ¡ trá»‹ trong class, cÃ¹i báº¯p, vÃ¬ 1 class cÃ³ nhiá»u DI mÃ  DI láº¡i phá»¥ thuá»™c tháº±ng khÃ¡c, thÃ¬ láº¡i khÃ³ khÄƒn Ä‘á»ƒ khá»Ÿi táº¡o.
 ============================================================================================================================================================
 @Scope 
-các bean dc quản lý trong context đều trỏ vào 1 ô nhớ => 1 instance => đã có thì sẽ k khởi tạo nữa và cứ thế lấy ra instance đó (cơ chế sigleton).
-==> nhưng muốn mỗi lần sử dụng là 1 object mới thì ta sử dụng @Scope(prototype), giá trị mặc định của nó là singleton (Request, session)
+cÃ¡c bean dc quáº£n lÃ½ trong context Ä‘á»u trá» vÃ o 1 Ã´ nhá»› => 1 instance => Ä‘Ã£ cÃ³ thÃ¬ sáº½ k khá»Ÿi táº¡o ná»¯a vÃ  cá»© tháº¿ láº¥y ra instance Ä‘Ã³ (cÆ¡ cháº¿ sigleton).
+==> nhÆ°ng muá»‘n má»—i láº§n sá»­ dá»¥ng lÃ  1 object má»›i thÃ¬ ta sá»­ dá»¥ng @Scope(prototype), giÃ¡ trá»‹ máº·c Ä‘á»‹nh cá»§a nÃ³ lÃ  singleton (Request, session)
 
 ============================================================================================================================================================
 
 
-Khi có 2 class dều gọi đến và muốn tạo bean
-Muốn ưu tiên 1 bean bằng cách : => @Primary vào bên trên class muốn dc ưu tiên bean
-				 	  => @Qualifier("tenbean") đi kèm với autowired, thêm ngay dưới @Autowired
-					  => Thêm vào trên contrucstor
-					  => Thêm vào phương thức setter của thuộc tính đó
+Khi cÃ³ 2 class dá»u gá»i Ä‘áº¿n vÃ  muá»‘n táº¡o bean
+Muá»‘n Æ°u tiÃªn 1 bean báº±ng cÃ¡ch : => @Primary vÃ o bÃªn trÃªn class muá»‘n dc Æ°u tiÃªn bean
+				 	  => @Qualifier("tenbean") Ä‘i kÃ¨m vá»›i autowired, thÃªm ngay dÆ°á»›i @Autowired
+					  => ThÃªm vÃ o trÃªn contrucstor
+					  => ThÃªm vÃ o phÆ°Æ¡ng thá»©c setter cá»§a thuá»™c tÃ­nh Ä‘Ã³
 
 ============================================================================================================================================================
 
 RestFul API
-RequestMapping : nếu không chỉ rõ là method nào, thì khi chạy API nó sẽ chỉ cần đúng đường dẫn là chạy được.
+RequestMapping : náº¿u khÃ´ng chá»‰ rÃµ lÃ  method nÃ o, thÃ¬ khi cháº¡y API nÃ³ sáº½ chá»‰ cáº§n Ä‘Ãºng Ä‘Æ°á»ng dáº«n lÃ  cháº¡y Ä‘Æ°á»£c.
 
 
 
 ============================================================================================================================================================
-Usermanagement : Đăng kí tài khoản + cập nhật(email, pass..) + search .....
+Usermanagement : ÄÄƒng kÃ­ tÃ i khoáº£n + cáº­p nháº­t(email, pass..) + search .....
 
-Authentication: Xác thực người dùng => thường được thực hiện bằng kiểm tra username và password.
-			=> cơ chế (built in application)  
-			=> nhờ bên thứ 3 (facebooke, gmail,zalo) => OAuth1 + OAuth2 + SpringScurity
+Authentication: XÃ¡c thá»±c ngÆ°á»i dÃ¹ng => thÆ°á»ng Ä‘Æ°á»£c thá»±c hiá»‡n báº±ng kiá»ƒm tra username vÃ  password.
+			=> cÆ¡ cháº¿ (built in application)  
+			=> nhá» bÃªn thá»© 3 (facebooke, gmail,zalo) => OAuth1 + OAuth2 + SpringScurity
 
 
-Authotication: Phân Quyền
+Authotication: PhÃ¢n Quyá»n
 			=> Role
-			=> RBAC ( Role Base Access Control) => 1 role có nhiều quyền
-									=> 1 người có nhiều role
+			=> RBAC ( Role Base Access Control) => 1 role cÃ³ nhiá»u quyá»n
+									=> 1 ngÆ°á»i cÃ³ nhiá»u role
 
 
 
 =============================================================================================================================================================
 									JWT - Json Web Token
 
-JWT bao gồm 3 phần : Header - Payload - Signature
-Quy Trình loggin tạo token : 
+JWT bao gá»“m 3 pháº§n : Header - Payload - Signature
+Quy TrÃ¬nh loggin táº¡o token : 
 
-Vào request login : => loadUserByUsername (userService) : tìm user có trong hệ thống hay không?
-				=> buid user trên hệ thống
-				=> JwtProvider để createToken + validate token
-				=> Nếu có ngoại lệ thì nhảy sang JwtEntryPoint
+VÃ o request login : => loadUserByUsername (userService) : tÃ¬m user cÃ³ trong há»‡ thá»‘ng hay khÃ´ng?
+				=> buid user trÃªn há»‡ thá»‘ng
+				=> JwtProvider Ä‘á»ƒ createToken + validate token
+				=> Náº¿u cÃ³ ngoáº¡i lá»‡ thÃ¬ nháº£y sang JwtEntryPoint
 	 
 =============================================================================================================================================================
 									Spring security - Authorization
-=> Cốt lõi spring security là 1 loạt các bộ lọc servlert giúp thêm Authentication và authotication vào ứng dụng web.
+=> Cá»‘t lÃµi spring security lÃ  1 loáº¡t cÃ¡c bá»™ lá»c servlert giÃºp thÃªm Authentication vÃ  authotication vÃ o á»©ng dá»¥ng web.
 
-Role và Authority
+Role vÃ  Authority
 
 
 

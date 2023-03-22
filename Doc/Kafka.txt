@@ -3,8 +3,9 @@
 
 Architecture (Kiến trúc)
 
--	Kafka Cluster: tập hợp nhiều con kafka broker chạy độc lập với nhau, đảm bảo tất cả k bị sập cùng 1 lúc, chú ý trong môi trường product tối thiểu phải có 3 con,
- 		và thường là số lẻ
+-	Kafka Cluster: tập hợp nhiều con kafka broker chạy độc lập với nhau, đảm bảo tất cả k bị sập cùng 1 lúc, 
+		chú ý trong môi trường product tối thiểu phải có 3 con,và thường là số lẻ
+ 		
 -	Zoo Keeper: là phần mềm quản lí tất cả của kafka như: broker,topics, offset, event,messegae.
 -	Event : là bất cứ dữ liệu nào theo chỉ định thời gian.
 -	Produce: là nhóm các ứng dụng gửi các event lên những broker server, thường gửi vào toppic.
@@ -46,3 +47,7 @@ Account Service (Producer) Tạo tài khoản người dùng ======> Pushlish Ev
 
 Notification Service (Consumer) Topic là Notification =====> ReadEvent => Kafka (Đọc từ 2 topic về)
 Statistic Service (Consumer)  Topic là Statistic =======> ReadEvent => Kafka ()
+
+
+
+

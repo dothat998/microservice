@@ -41,6 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests() //khi co-author dang nhap thi bat dau bat quyen truy cap
                 .antMatchers(HttpMethod.POST, "/api/sibspring/signup").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/sibspring/signing").permitAll()
+                .antMatchers(HttpMethod.GET,"/i18n").permitAll()
                 .antMatchers( "/api/sibspring/search").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()

@@ -15,12 +15,6 @@ public class NotificationApplication {
     }
 
 
-    //convert Byte => object
-    @Bean
-    JsonMessageConverter converter(){
-        return new JsonMessageConverter();
-    }
-
 
 }
 

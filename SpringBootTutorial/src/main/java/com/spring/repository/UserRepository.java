@@ -23,6 +23,4 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 
     UserModel save(UserModel userModel);
 
-
-
 }

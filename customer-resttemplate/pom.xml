@@ -10,7 +10,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>customer</artifactId>
+    <artifactId>customer-resttemplate</artifactId>
 
     <properties>
         <java.version>1.8</java.version>
