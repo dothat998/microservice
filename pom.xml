@@ -11,15 +11,14 @@
     <name>microservice</name>
 
     <modules>
-        <module>customer-resttemplate</module>
-        <module>gateway</module>
-        <module>accountservice-producer</module>
-        <module>notification-consumer</module>
         <module>SpringBootTutorial</module>
         <module>sib-co-base</module>
-        <module>spring-rabbitmq-producer</module>
-        <module>discovery-server</module>
+        <module>discovery-server-eureka</module>
         <module>Java-Core</module>
+        <module>edge-server-zuul</module>
+        <module>config-server</module>
+        <module>product-service</module>
+        <module>review-service</module>
     </modules>
 
     <properties>
