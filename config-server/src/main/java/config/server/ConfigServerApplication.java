@@ -7,7 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.context.ConfigurableApplicationContext;
-
+/*
+* @author: ThatND
+* @since: 27/3/2023 5:15 PM
+* @description:  đóng vai trò lưu tất cả các config cho toàn bộ hệ thống,
+* cấu hình ở 1 chỗ mà k cần cấu hình cho từng service.
+* @update:
+*
+* */
 @EnableConfigServer
 @EnableDiscoveryClient
 @SpringBootApplication

@@ -2,7 +2,7 @@
 Kiến trúc : chia để trị, chia nhỏ thành các project java web nhỏ để quản lý.
 Spring cloud framework hỗ trợ để quản lý project.
 
-CLIENTM (máy khách) : Angular, mobile 
+CLIENT (máy khách) : Angular, mobile 
 
 API GATEWAY(ZUUL) : đóng vai trò là cửa ngõ đầu vào : mọi request từ client gửi lên sẽ đi qua apigateway,
 					 thằng Service Discovery(ERUKA dò tìm đúng service để trả ra kết quả.
@@ -14,4 +14,8 @@ CONFIG SERVICE : đóng vai trò lưu tất cả các config cho toàn bộ hệ
 
 AUTH SERVICE (Xác thực) : oauth 2 , jwt....
 
-LOG ANALYSIS : ghi lại log
+LOG ANALYSIS : ghi lại log.
+
+=============================================================================================================================================
+
+Các thành phần chính

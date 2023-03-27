@@ -14,6 +14,8 @@
         <option value="$PROJECT_DIR$/customer-resttemplate/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
         <option value="$PROJECT_DIR$/notification-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/review-service/pom.xml" />
         <option value="$PROJECT_DIR$/spring-rabbitmq-producer/pom.xml" />
       </set>
     </option>

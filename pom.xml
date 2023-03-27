@@ -17,8 +17,6 @@
         <module>Java-Core</module>
         <module>edge-server-zuul</module>
         <module>config-server</module>
-        <module>product-service</module>
-        <module>review-service</module>
     </modules>
 
     <properties>

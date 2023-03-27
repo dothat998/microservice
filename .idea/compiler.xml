@@ -10,10 +10,8 @@
         <module name="config-server" />
         <module name="Java-Core" />
         <module name="discovery-server-eureka" />
-        <module name="review-service" />
         <module name="SpringBootTutorial" />
         <module name="edge-server-zuul" />
-        <module name="product-service" />
         <module name="sib-co-base" />
       </profile>
     </annotationProcessing>
@@ -23,6 +21,8 @@
       <module name="employee" target="1.8" />
       <module name="gateway" target="1.8" />
       <module name="notification-consumer" target="1.8" />
+      <module name="product-service" target="1.8" />
+      <module name="review-service" target="1.8" />
       <module name="spring-rabbitmq-producer" target="1.8" />
       <module name="statistic" target="1.8" />
       <module name="zuul-gateway-proxy" target="1.8" />
