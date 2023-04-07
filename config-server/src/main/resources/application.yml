@@ -9,9 +9,20 @@ server:
 
 # Configuration of a local Git-repo for development locally without Docker
 # note that we are still using git; We just access the git-repo via file: protocol
-spring.cloud.config.server.git.uri: file:///${PWD}/../../../../dothat-microservices-config/
+#config trong file git-local-repository.
+#http://localhost:8888/limits-service-configuration/default
+#Cau hinh trong pom
+spring.cloud.config.server.git.uri: file://D:/git-local-repository
 
 eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          clone-on-start: 'true'
 
 #spring.rabbitmq:
 #  host: localhost

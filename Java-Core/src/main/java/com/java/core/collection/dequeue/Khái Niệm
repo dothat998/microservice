@@ -1,4 +1,0 @@
-là một collection được sử dụng để chứa nhiều phần tử trước khi xử lý.
-Ngoài các thao tác cơ bản của collection, một Deque cung cấp các thao tác bổ sung như chèn,
-lấy ra và kiểm tra. Deques có thể được sử dụng như là FIFO (first-in, first-out - vào trước, ra trước)
-và LIFO (last-in, first-out - vào sau, ra trước). Trong một Deque, tất cả các phần tử mới có thể được chèn vào, lấy ra và lấy ra ở cả hai đầu.

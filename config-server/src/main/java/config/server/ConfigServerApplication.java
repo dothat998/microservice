@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 /*
 * @author: ThatND
 * @since: 27/3/2023 5:15 PM
-* @description:  đóng vai trò lưu tất cả các config cho toàn bộ hệ thống,
+* @description:  đóng vai trò lưu tất cả các config cho toàn bộ hệ thống
 * cấu hình ở 1 chỗ mà k cần cấu hình cho từng service.
 * @update:
 *

@@ -1,10 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package com.spring.service.impl;
-
 import com.sib.co.exception.NotFoundExceptionCustom;
 import com.sib.co.utils.MapperUtils;
 import com.spring.dto.Datatable;

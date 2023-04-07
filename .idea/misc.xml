@@ -10,8 +10,10 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Java-Core/pom.xml" />
         <option value="$PROJECT_DIR$/accountservice-producer/pom.xml" />
         <option value="$PROJECT_DIR$/customer-resttemplate/pom.xml" />
+        <option value="$PROJECT_DIR$/edge-server-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
         <option value="$PROJECT_DIR$/notification-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/product-service/pom.xml" />

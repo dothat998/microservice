@@ -1,4 +1,0 @@
-Queue (hàng đợi): là một collection được sử dụng để chứa nhiều phần tử trước khi xử lý.
-Bên cạnh các thao tác cơ bản của collection,
- Queue cung cấp các thao tác bổ sung như chèn, lấy ra và kiểm tra.
- Queue có thể được sử dụng như là FIFO (first-in, first-out - vào trước, ra trước)

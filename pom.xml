@@ -14,9 +14,9 @@
         <module>SpringBootTutorial</module>
         <module>sib-co-base</module>
         <module>discovery-server-eureka</module>
-        <module>Java-Core</module>
-        <module>edge-server-zuul</module>
         <module>config-server</module>
+        <module>currency-calculation-service</module>
+        <module>currency-exchange-service</module>
     </modules>
 
     <properties>

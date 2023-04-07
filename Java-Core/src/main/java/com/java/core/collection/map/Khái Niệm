@@ -1,2 +1,0 @@
-Map: là một đối tượng ánh xạ mỗi key tương úng với một giá trị.
- Map không thể chứa giá trị trùng lặp. Mỗi key có thể ánh xạ đến nhiều nhất một giá trị.
