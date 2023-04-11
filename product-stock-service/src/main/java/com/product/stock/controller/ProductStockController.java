@@ -1,7 +1,7 @@
 package com.product.stock.controller;
 
 
-import com.product.stock.bean.ProductStockBean;
+import com.product.stock.dto.ProductStockDTO;
 import com.product.stock.entity.ProductStock;
 import com.product.stock.repository.ProductStockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +19,13 @@ public class ProductStockController {
     ProductStockRepository repository;
 
     @GetMapping("/check-product-stock/productName/{productName}/productAvailability/{productAvailability}")
-    public ProductStockBean checkProductStock(@PathVariable String productName,
-                                              @PathVariable String productAvailability)
+    public ProductStockDTO checkProductStock(@PathVariable String productName,
+                                             @PathVariable String productAvailability)
     {
 
         ProductStock productStock=repository.findByProductNameAndProductAvailability(productName,productAvailability);
 
-        ProductStockBean productStockBean=new ProductStockBean(
+        ProductStockDTO productStockBean=new ProductStockDTO(
                 productStock.getId(),
                 productStock.getProductName(),
                 productStock.getProductPrice(),

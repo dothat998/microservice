@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: product-enquiry-service
+    main:
+      web-application-type: none
+
+
+server:
+  port: ${port:8700}
+
+#khi chua co eureka - load can bang tai bang ribbon
+product-stock-service:
+  ribbon:
+    listOfServers: http://localhost:8800, http://localhost:8802

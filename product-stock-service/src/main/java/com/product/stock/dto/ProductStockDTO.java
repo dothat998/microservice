@@ -1,8 +1,8 @@
-package com.product.stock.bean;
+package com.product.stock.dto;
 
 import java.math.BigDecimal;
 
-public class ProductStockBean {
+public class ProductStockDTO {
     private Long id;
     private String productName;
     private BigDecimal productPrice;
@@ -59,10 +59,10 @@ public class ProductStockBean {
         this.port = port;
     }
 
-    public ProductStockBean() {
+    public ProductStockDTO() {
     }
 
-    public ProductStockBean(Long id, String productName, BigDecimal productPrice, String productAvailability, double discountOffer, int port) {
+    public ProductStockDTO(Long id, String productName, BigDecimal productPrice, String productAvailability, double discountOffer, int port) {
         this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
