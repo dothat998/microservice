@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/customer-resttemplate/pom.xml" />
         <option value="$PROJECT_DIR$/edge-server-zuul/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/netflix-zuul-api-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/notification-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/product-service/pom.xml" />
         <option value="$PROJECT_DIR$/review-service/pom.xml" />
@@ -22,7 +23,7 @@
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="19" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

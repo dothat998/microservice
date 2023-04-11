@@ -7,11 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringBootTutorial" />
         <module name="config-server" />
+        <module name="property-access-server" />
+        <module name="product-enquiry-server" />
+        <module name="discovery-server-eureka" />
+        <module name="netflix-zuul-api-gateway-server" />
+        <module name="SpringBootTutorial" />
         <module name="currency-exchange-service" />
         <module name="currency-calculation-service" />
-        <module name="discovery-server-eureka" />
+        <module name="product-stock-service" />
         <module name="sib-co-base" />
       </profile>
     </annotationProcessing>
@@ -22,6 +26,7 @@
       <module name="employee" target="1.8" />
       <module name="gateway" target="1.8" />
       <module name="Java-Core" target="1.8" />
+      <module name="netflix-zuul-api-gateway" target="1.8" />
       <module name="notification-consumer" target="1.8" />
       <module name="product-service" target="1.8" />
       <module name="review-service" target="1.8" />

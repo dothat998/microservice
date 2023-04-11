@@ -36,7 +36,7 @@ public class CurrencyCalculationController {
     }
 
 
-    @GetMapping("/currency-converter-feign/from/{from}/to/{to}/quantity/{quantity}")
+    @GetMapping("/currency-converter-feign/from/{from}/t09999o/{to}/quantity/{quantity}")
     public CalculatedAmount calculateAmountFeign(@PathVariable String from, @PathVariable String to,
                                                  @PathVariable BigDecimal quantity) {
 

@@ -1,5 +1,7 @@
+
+
 server:
-  port: 8888
+  port: ${port:8888}
 #  ssl:
 #    key-store: classpath:server.jks
 #    key-store-password: password
@@ -23,6 +25,8 @@ spring:
         git:
           default-label: main
           clone-on-start: 'true'
+  application:
+    name: config-server
 
 #spring.rabbitmq:
 #  host: localhost
