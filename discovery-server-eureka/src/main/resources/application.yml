@@ -1,12 +1,12 @@
 server:
-  port: 8761
+  port: ${port:8761}
 
 #security:
 #  user:
 #    password: ${eureka.password} # Don't use a default password in a real app
 
-info:
-  component: Discovery Server
+#info:
+#  component: Discovery Server
 
 
 eureka:
@@ -36,7 +36,7 @@ eureka:
 
 logging:
   level:
-    root: WARN
+    root: INFO
 
     # Set INFO to see the allocated port
     org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO

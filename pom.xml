@@ -21,6 +21,7 @@
         <module>property-access-server</module>
         <module>product-stock-service</module>
         <module>product-enquiry-server</module>
+        <module>spring-cloud-api-gateway</module>
     </modules>
 
     <properties>

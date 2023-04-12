@@ -16,6 +16,8 @@ AUTH SERVICE (Xác thực) : oauth 2 , jwt....
 
 LOG ANALYSIS : ghi lại log.
 
-=============================================================================================================================================
-
-Các thành phần chính
+=====================================================================================================================================
+CONFIG SERVICE : đóng vai trò lưu tất cả các config cho toàn bộ hệ thống, cấu hình ở 1 chỗ mà k cần cấu hình cho từng service => lưu trữ trên GIT
+Access Server  : Truy cập vào tài nguyên config
+Ribbon - Load Balancer: có tể gọi qua lại các server bằng nameserver (cấu hình ribbon trong pom.xml + yml + url) => load balancer
+				có thể dùng máy chủ eureka để gọi qua name-service không cần ribbon

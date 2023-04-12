@@ -5,16 +5,18 @@ import com.product.enquiry.feignclient.ProductStockClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/product-enquiry")
 public class ProductEnquiryController {
 
     @Autowired
     ProductStockClient client;
 
 
-    @GetMapping("/product-enquiry/name/{name}/availability/{availability}/unit/{unit}")
+    @GetMapping("/name/{name}/availability/{availability}/unit/{unit}")
     public ProductEnquiryDTO getEnquiryOfProduct(@PathVariable String name,
                                                  @PathVariable String availability,
                                                  @PathVariable int unit) {
@@ -39,5 +41,10 @@ public class ProductEnquiryController {
 
         );
 
+    }
+
+    @GetMapping
+    public String abc(){
+        return "abc";
     }
 }

@@ -1,0 +1,14 @@
+server:
+  port: ${port:8080}
+
+spring:
+  application:
+    name: cloud-api-gateway-server
+  cloud:
+    gateway:
+      routes:
+        - id: stock-enquiry
+          uri: http://localhost:8700/
+          predicates:
+            - Path=/product-enquiry/**
+

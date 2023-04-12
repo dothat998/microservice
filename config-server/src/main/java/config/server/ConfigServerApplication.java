@@ -16,7 +16,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 *
 * */
 @EnableConfigServer
-@EnableDiscoveryClient
 @SpringBootApplication
 public class ConfigServerApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ConfigServerApplication.class);

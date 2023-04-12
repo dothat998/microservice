@@ -57,10 +57,10 @@ spring:
 # when running docker locally on a dev pc the config-repo is mounted to a local git-repo in docker-compose file
 #spring.cloud.config.server.git.uri: /config-repo
 
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://discovery:8761/eureka/
 
