@@ -15,9 +15,23 @@ CONFIG SERVICE : đóng vai trò lưu tất cả các config cho toàn bộ hệ
 AUTH SERVICE (Xác thực) : oauth 2 , jwt....
 
 LOG ANALYSIS : ghi lại log.
+=====================================================================================================================================
+
+
+File bootstrap.properties hoặc bootstrap.yml được dùng để cấu hình bootstrap context. Bootstrap context chính là response của việc load các cấu hình từ một nguồn bên ngoài.
+
 
 =====================================================================================================================================
 CONFIG SERVICE : đóng vai trò lưu tất cả các config cho toàn bộ hệ thống, cấu hình ở 1 chỗ mà k cần cấu hình cho từng service => lưu trữ trên GIT
 Access Server  : Truy cập vào tài nguyên config
 Ribbon - Load Balancer: có tể gọi qua lại các server bằng nameserver (cấu hình ribbon trong pom.xml + yml + url) => load balancer
-				có thể dùng máy chủ eureka để gọi qua name-service không cần ribbon
+				có thể dùng máy chủ eureka để gọi qua name-service không cần ribbon.
+				 Ribbon sử dụng thông tin có sẵn trong Eureka để định vị các instance thích hợp. Nếu tìm thấy nhiều hơn một instance,
+				 Ribbon sẽ áp dụng cân bằng tải để phân phối các reuqest đến các instance rảnh việc nhất
+
+proxy zuul: điểm truy cập cuối 
+
+NETFLIX HYSTRIX : CIRCUIT BREAKER PATTERN - MẪU NGẮT MẠCH : Đây là một pattern dùng để ngắt một quá trình xử lý khi hệ thống gặp sự cố, để đảm bảo số lượng message bị lỗi không tăng cao,
+ làm cho việc khắc phục trở nên khó khăn, cũng như có thể làm cho hệ thống bị xụp đổ hàng loạt do ảnh hưởng lẫn nhau. 
+633633
+883666

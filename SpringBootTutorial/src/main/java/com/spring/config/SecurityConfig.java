@@ -25,7 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = false, jsr250Enabled = false)
-//kích hoạt cả 3 cách phân quyền phương thức. Thực tế trong bài viết này, tôi chỉ ví dụ cách mới nhất là prePostEnabled = true sử dụng Spring Expression Language.
+//kích hoạt cả 3 cách phân quyền phương thức. Thực tế trong bài viết này, tôi chỉ ví dụ cách mới nhất là
+// prePostEnabled = true sử dụng Spring Expression Language.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired(required = true)
     private UserService userService;

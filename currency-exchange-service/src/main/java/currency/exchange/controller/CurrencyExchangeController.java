@@ -30,8 +30,4 @@ public class CurrencyExchangeController {
 		exchangeValue.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		return exchangeValue;
 	}
-	@GetMapping("test")
-	public String abc(){
-		return "abc";
-	}
 }

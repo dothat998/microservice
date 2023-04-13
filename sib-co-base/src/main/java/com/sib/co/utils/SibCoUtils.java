@@ -14,8 +14,8 @@ import java.util.regex.Pattern;
 import com.sib.co.base.BaseObj;
 import com.sib.co.contants.SibCoConstant;
 import com.sib.co.response.SibCoResponse;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 

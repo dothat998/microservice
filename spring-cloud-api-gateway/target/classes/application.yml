@@ -4,11 +4,11 @@ server:
 spring:
   application:
     name: cloud-api-gateway-server
-  cloud:
-    gateway:
-      routes:
-        - id: stock-enquiry
-          uri: http://localhost:8700/
-          predicates:
-            - Path=/product-enquiry/**
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: stock-enquiry
+#          uri: http://localhost:8700/
+#          predicates:
+#            - Path=/product-enquiry/**
 
