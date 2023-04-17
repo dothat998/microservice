@@ -10,6 +10,7 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.KafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
+import org.springframework.kafka.support.converter.JsonMessageConverter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,4 +45,8 @@ public class KafkaConsumerConfig {
         return factory;
     }
 
+    @Bean
+    JsonMessageConverter messageConverter(){
+        return new JsonMessageConverter();
+    }
 }

@@ -11,4 +11,14 @@ public class KafkaConfig {
     public NewTopic testTopic(){
         return TopicBuilder.name("test").build();
     }
+
+    @Bean
+    NewTopic notification(){
+        //topic name, partition, replication number
+        return new NewTopic("notification",2,(short) 1);
+    }
+    @Bean
+    NewTopic statistic(){
+        return new NewTopic("statistic",2,(short) 1);
+    }
 }
